@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="完成" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#80cccccc"
+        android:padding="5dp"
+        android:text="签到状况" />
+
+    <CheckBox
+        android:id="@+id/cb_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="未知" />
+
+    <CheckBox
+        android:id="@+id/cb_lol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="未签到" />
+
+    <CheckBox
+        android:id="@+id/cb_swing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已签到" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#80cccccc"
+        android:padding="5dp"
+        android:text="签到时间" />
+
+    <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+</LinearLayout>
