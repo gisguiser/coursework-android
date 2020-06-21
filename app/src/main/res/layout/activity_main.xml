@@ -1,99 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/bg_common_gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="                                                           签到详情"
+    />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/detail_desc_ll_marginTop"
-        android:background="@color/white"
-        android:padding="@dimen/detail_desc_ll_padding"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="                                          签到详情"
-            android:textColor="@color/detail_merchant_info_color"
-            android:textSize="@dimen/textSize_17"/>
-        <View
-            style="@style/detail_view_style"
-            android:layout_marginTop="@dimen/detail_view_marginTop"/>
-        <WebView
-            android:id="@+id/detail_desc_wv_description"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <View
-            style="@style/detail_view_style"/>
-        <RelativeLayout
-            android:id="@+id/detail_desc_check_detail_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:gravity="center"
-            android:padding="@dimen/detail_desc_check_layout_padding">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/app_yellow"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/detail_desc_ll_marginTop"
-        android:background="@color/white"
-        android:padding="@dimen/detail_desc_ll_padding"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="签到描述"
-            android:textColor="@color/detail_merchant_info_color"
-            android:textSize="@dimen/textSize_17"/>
-        <View
-            style="@style/detail_view_style"
-            android:layout_marginTop="@dimen/detail_view_marginTop"/>
-        <WebView
-            android:id="@+id/detail_desc_wv_tips"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
+    <!--签到人数/总人数-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/detail_desc_ll_marginTop"
-        android:background="@color/white"
-        android:padding="@dimen/detail_desc_ll_padding"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="签到详情"
-            android:textColor="@color/detail_merchant_info_color"
-            android:textSize="@dimen/textSize_17"/>
-        <View
-            style="@style/detail_view_style"
-            android:layout_marginTop="@dimen/detail_view_marginTop"/>
-        <ListView
-            android:id="@+id/detail_desc_list_recommend"
+            android:textSize="30dp"
+            android:text="签到人数: "/>
+        <TextView
+            android:id="@+id/sumnum"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
     </LinearLayout>
+
+    <!--签到说明-->
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="签到说明: "/>
+    <TextView
+        android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+    </LinearLayout>
+
+    <!--签到码-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="签到码: "/>
+        <TextView
+            android:id="@+id/key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+    </LinearLayout>
+    <!--签到截止时间-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="签到截止时间: "/>
+        <TextView
+            android:id="@+id/endtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+    </LinearLayout>
+    <!--签到状态-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="签到状态:"/>
+        <TextView
+            android:id="@+id/statue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+    </LinearLayout>
+    <!--签到人信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="30dp"
+           android:text="已签到人员姓名姓名: "/>
+        <TextView
+            android:id="@+id/person"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="200dp"
+            />
+    </LinearLayout>
+
+
 
 </LinearLayout>
