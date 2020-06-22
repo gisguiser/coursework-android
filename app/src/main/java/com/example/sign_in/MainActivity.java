@@ -1,86 +1,43 @@
 package com.example.sign_in;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.ListView;
 
-import com.example.sign_in.R;
+import java.util.ArrayList;
+import java.util.List;
 
-
-public class MainActivity extends Activity implements View.OnClickListener,
-        RadioGroup.OnCheckedChangeListener {
-
-    EditText username, password;
-    RadioGroup sex;
-    Button btn_register, btn_cancel;
-
-    UserBean user;
-
+public class MainActivity extends Activity {
+    //创建显示列表的listView
+    private ListView listView;
+    //模拟新闻的标题数据
+    private List<String> listTitle;
+    //模拟新闻的信息数据
+    private List<String> listRemark;
+    //创建适配器对象
+    private MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user = new UserBean();
-        initView();
+        //初始化页面对象
+        initUI();
+        //将数据显示在页面上
+        initDate();
     }
+    public void initUI(){
+        listView=(ListView) findViewById(R.id.lv_text_view);
+        listTitle=new ArrayList<String>();
+        listRemark=new ArrayList<String>();
 
-    private void initView() {
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        sex = (RadioGroup) findViewById(R.id.sex);
-        btn_register = (Button) findViewById(R.id.btn_register);
-        btn_cancel = (Button) findViewById(R.id.btn_cancel);
-        btn_register.setOnClickListener(this);
-        btn_cancel.setOnClickListener(this);
-        sex.setOnCheckedChangeListener(this);
-        // 给定一个初始状态
-        sex.check(R.id.boy);
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_cancel:
-                // 关闭
-                finish();
-                break;
-            case R.id.btn_register:
-                String uname = username.getText().toString();
-                String pwd = password.getText().toString();
-                // 非空
-                if (TextUtils.isEmpty(uname) || TextUtils.isEmpty(pwd)) {
-                    Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    user.setUsername(uname);
-                    user.setPassword(pwd);
-                    // 跳转并且携带数据
-                    Intent intent = new Intent(this, SetActivity.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                }
-                break;
-            default:
-                break;
+    public  void initDate(){
+        //模拟创建数据
+        for (int i=0;i<99;i++){
+            listTitle.add("签到名称"+i);
+            listRemark.add("销毁时间"+i);
         }
-    }
-
-
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        // 状态改变时
-        switch (checkedId) {
-            case R.id.boy:
-                user.setSex('男');
-                break;
-            case R.id.gril:
-                user.setSex('女');
-                break;
-        }
+        adapter=new MyAdapter(listTitle,listRemark,this);
+        listView.setAdapter(adapter);
     }
 }
