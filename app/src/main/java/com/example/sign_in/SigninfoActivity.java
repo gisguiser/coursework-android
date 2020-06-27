@@ -1,7 +1,6 @@
 package com.example.sign_in;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -25,7 +24,7 @@ public class SigninfoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.logininfor);
         sumnum=(TextView) this.findViewById(R.id.sumnum);
         desc=(TextView)this.findViewById(R.id.desc);
         key=(TextView)this.findViewById(R.id.key);
