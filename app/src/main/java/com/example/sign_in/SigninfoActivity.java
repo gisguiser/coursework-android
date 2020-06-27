@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 
 
-public class MainActivity extends Activity {
+public class SigninfoActivity extends Activity {
     TextView sumnum,desc,key,endtime,statue,person;
     private String originAddress = "http://218.78.85.248/v1/sign/query_sign_in"; //
     private String token="10sa3a023";
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 
         try {
             //构造完整URL
-            String compeletedURL = HttpUtil.getURLWithParams(originAddress,sign_id,token);
+            String compeletedURL = HttpUtil.getURLWithParams(originAddress,sign_id);
             //发送请求
             HttpUtil.sendHttpRequest(compeletedURL, new HttpCallbackListener() {
                 @Override

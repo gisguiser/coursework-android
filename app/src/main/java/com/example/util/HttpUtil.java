@@ -68,7 +68,7 @@ public class HttpUtil {
     }
 
     //组装出带参数的完整URL
-    public static String getURLWithParams(String address,String sign_id,String token) throws UnsupportedEncodingException {
+    public static String getURLWithParams(String address,String sign_id) throws UnsupportedEncodingException {
         //设置编码
 
         final String encode = "UTF-8";
@@ -77,11 +77,8 @@ public class HttpUtil {
         url.append("?");
         url.append("sign_id=");
         url.append(sign_id);
-        url.append("&");
-        url.append("token=");
-        url.append(token);
         return url.toString();
-        //结果大致为http://192.168.3.1:8080/sasdsa?sign_id=123&token=156134
+        //结果大致为http://192.168.3.1:8080/sasdsa?sign_id=123
     }
 
     //判断当前网络是否可用
