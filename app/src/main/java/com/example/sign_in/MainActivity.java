@@ -1,14 +1,18 @@
 package com.example.sign_in;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class MainActivity extends Activity {
-    //创建显示列表的listView
+   public static final String URL = "218.78.85.248";
+    private Button btn;
     private ListView listView;
     //模拟新闻的标题数据
     private List<String> listTitle;
@@ -24,7 +28,18 @@ public class MainActivity extends Activity {
         initUI();
         //将数据显示在页面上
         initDate();
+btn=(Button)findViewById(R.id.mButton);
+btn.setOnClickListener(new btnclock());
+    }class  btnclock implements  OnClickListener{
+        public void  onClick(View v){
+            Intent intent=new Intent((MainActivity.this, signinfoactivity.class);
+            startActivity(intent);
+
+        }
     }
+
+
+
     public void initUI(){
         listView=(ListView) findViewById(R.id.lv_text_view);
         listTitle=new ArrayList<String>();
@@ -40,4 +55,5 @@ public class MainActivity extends Activity {
         adapter=new MyAdapter(listTitle,listRemark,this);
         listView.setAdapter(adapter);
     }
+
 }
