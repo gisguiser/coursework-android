@@ -1,11 +1,12 @@
 package com.example.sign_in;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.util.HttpCallbackListener;
-import com.example.util.HttpUtil;
+import com.example.util.HttpRequest;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,8 +20,7 @@ import org.json.JSONObject;
 public class SigninfoActivity extends Activity {
     TextView sumnum,desc,key,endtime,statue,person;
     private String originAddress = "http://218.78.85.248/v1/sign/query_sign_in"; //
-    private String token="10sa3a023";
-    private String sign_id="13531";
+    private String sign_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,28 +31,19 @@ public class SigninfoActivity extends Activity {
         endtime=(TextView)this.findViewById(R.id.endtime);
         statue=(TextView)this.findViewById(R.id.statue);
         person=(TextView)this.findViewById(R.id.person);
-
-        try {
-            //构造完整URL
-            String compeletedURL = HttpUtil.getURLWithParams(originAddress,sign_id);
-            //发送请求
-            HttpUtil.sendHttpRequest(compeletedURL, new HttpCallbackListener() {
-                @Override
-                public void onFinish(String response) {
-                   JSONAnalysis(response);
-                }
-
-                @Override
-                public void onError(Exception e) {
-                    System.out.println("查询失败");
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+        //获取前面页面传送的dign_id
+        Bundle bunde=this.getIntent().getExtras();
+        sign_id=bunde.getString("text");
+        //发送http请求
+        SharedPreferences config = getSharedPreferences("config", MODE_PRIVATE);
+        String token = config.getString("token", "");
+        if (token.isEmpty()) {
+            String result=HttpRequest.sendGet(originAddress,sign_id,token);
+            GSONAnalysis(result);
         }
 
     }
-    protected void JSONAnalysis(String string) {
+    protected void GSONAnalysis(String string) {
         JSONObject object = null;
         try {
             object = new JSONObject(string);
