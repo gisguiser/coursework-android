@@ -28,10 +28,10 @@ public class MainActivity extends Activity {
         initUI();
         //将数据显示在页面上
         initDate();
-btn=(Button)findViewById(R.id.mButton);
-btn.setOnClickListener(new btnclock());
-    }class  btnclock implements  OnClickListener{
-        public void  onClick(View v){
+        btn=(Button)findViewById(R.id.mButton);
+        btn.setOnClickListener(new btnclock());
+        }class  btnclock implements  OnClickListener{
+         public void  onClick(View v){
             Intent intent=new Intent(MainActivity.this, SigninfoActivity.class);
             startActivity(intent);
 
