@@ -3,14 +3,12 @@ package com.example.sign_in;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.util.HttpRequest;
 import com.google.gson.Gson;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -48,9 +46,10 @@ public class SigninfoActivity extends Activity {
 
     }
     protected void GSONAnalysis(String result) {
+        Toast toast;
         Gson gson=new Gson();
         //解析http请求返回的gson
-        user_token userToken=gson.fromJson(result,user_token.class);
+       logn_infor userToken=gson.fromJson(result,logn_infor.class);
         String state=userToken.getState();
         if(state == "true") {
             int count=userToken.getPayloads().getSign_count();
@@ -65,22 +64,24 @@ public class SigninfoActivity extends Activity {
             for(String person_name:person_name_list){
                 person.setText(person_name);
             }
-
+        }else {
+             toast = Toast.makeText(SigninfoActivity.this, "查询失败，请返回！", Toast.LENGTH_SHORT);
+             toast.setGravity(Gravity.CENTER,0,0);
         }
 
     }
     //获取gsonz中state和payload
-    class user_token{
+    class logn_infor{
         private String state;
-        private Payloads payloads;
+        private Payloads1 payloads;
         public String getState(){
             return state;
         }
-        public Payloads getPayloads(){
+        public Payloads1 getPayloads(){
             return payloads;
         }
     }
-    class Payloads{
+    class Payloads1{
         private int sign_count;
         private String sign_message;
         List<String> sign_person;
