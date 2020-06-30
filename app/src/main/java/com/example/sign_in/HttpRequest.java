@@ -10,7 +10,13 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+<<<<<<< HEAD
 import java.nio.charset.StandardCharsets;
+=======
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+>>>>>>> 0dde7bcec90321b75adabd1019953ec700d7d3d4
 import java.util.List;
 import java.util.Map;
 
@@ -169,4 +175,8 @@ class State{
     public String getState(){
         return state;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0dde7bcec90321b75adabd1019953ec700d7d3d4
